@@ -7,42 +7,31 @@ var UserList = require('./user-list');
 var App = React.createClass({
     getInitialState: function() {
         return {
-            route: window.location.hash.substr(1)
+            groups: [],
+            users: []
         };
     },
 
     componentDidMount: function() {
-        var self = this,
-            data;
-        
-        $.get('data/users.json', function(data) {
-            console.log(data);
-        })
-        .fail(function(status) {
-            console.log(status);
-        });
-
-        $(window).on('hashchange', function() {
-            self.setState({
-                route: window.location.hash.substr(1)
+        $.get(this.props.url, function(data) {
+            this.setState({
+                groups: data.groups,
+                users: data.users
             });
+        }.bind(this)).
+        fail(function() {
+            // TODO: handle error
         });
     },
 
     render: function() {
-        var Child;
-
-        switch (this.state.route) {
-            default:
-                document.title = 'User List | ' + document.title;
-                Child = UserList;
-            break;
-        }
-
         return (
-            <Child/>
+            <UserList users={this.state.users} />
         );
     }
 });
 
-React.render(<App/>, $('#container'));
+React.render(
+    <App url="data/users.json" />,
+    document.getElementById('container')
+);

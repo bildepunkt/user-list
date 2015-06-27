@@ -1,6 +1,6 @@
 {
     "groups": [
-        "Producer",
+        "Manufacturer",
         "Dealer",
         "Distributor"
     ],
@@ -8,7 +8,7 @@
         {
             "name": "Walter H. White",
             "phone": "227-243-6478",
-            "group": "Producer"
+            "group": "Manufacturer"
         },
         {
             "name": "Jesse Pinkman",

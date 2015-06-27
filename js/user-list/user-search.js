@@ -2,7 +2,13 @@
 
 var React = require('react');
 
-var Search = React.createClass({
+/**
+ * The search component of the User list
+ *
+ * @component UserSearch
+ * @author Chris Peters
+ */
+var UserSearch = React.createClass({
     render: function() {
         return (
             <input type="text" onChange={this.handleChange}/>
@@ -15,4 +21,4 @@ var Search = React.createClass({
     }
 });
 
-module.exports = Search;
+module.exports = UserSearch;

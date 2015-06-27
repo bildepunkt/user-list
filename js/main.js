@@ -2,11 +2,14 @@
 
 var $ = require('jquery');
 var React = require('react');
+var qs = require('./lib/qs');
 var UserList = require('./user-list');
+var UserDetails = require('./user-details');
 
 var App = React.createClass({
     getInitialState: function() {
         return {
+            page: document.location.hash.substr(1),
             groups: [],
             users: []
         };
@@ -22,12 +25,24 @@ var App = React.createClass({
         fail(function() {
             // TODO: handle error
         });
+
+        $(window).bind('hashchange', function() {
+            this.setState({
+                page: document.location.hash.substr(1)
+            });
+        }.bind(this));
     },
 
     render: function() {
-        return (
-            <UserList users={this.state.users} />
-        );
+        var View;
+
+        if (this.state.page.indexOf('/details') === 0) {
+            View = <UserDetails id={qs('id')}/>
+        } else {
+            View = <UserList users={this.state.users} />;
+        }
+
+        return View;
     }
 });
 

@@ -2,8 +2,14 @@
 
 var React = require('react');
 var User = require('./user');
-var Search = require('./search');
+var UserSearch = require('./user-search');
 
+/**
+ * The User list base component
+ *
+ * @component UserList
+ * @author Chris Peters
+ */
 var UserList = React.createClass({
     getInitialState: function() {
         return {
@@ -17,7 +23,7 @@ var UserList = React.createClass({
                 if (this.state.search === '' ||
                     user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) != -1) {
                     return (
-                        <User name={user.name} />
+                        <User name={user.name} id={user.id} />
                     );
                 }
             }.bind(this)) : '';
@@ -25,7 +31,7 @@ var UserList = React.createClass({
         return (
             <div className="user-list">
                 <h1>User List</h1>
-                <Search onSearchChange={this.handleSearchChange} />
+                <UserSearch onSearchChange={this.handleSearchChange} />
                 <ul>
                     {users}
                 </ul>

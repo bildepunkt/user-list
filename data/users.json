@@ -8,17 +8,20 @@
         {
             "name": "Walter H. White",
             "phone": "227-243-6478",
-            "group": "Manufacturer"
+            "group": "Manufacturer",
+            "id": 1
         },
         {
             "name": "Jesse Pinkman",
             "phone": "227-555-1337",
-            "group": "Dealer"
+            "group": "Dealer",
+            "id": 2
         },
         {
             "name": "Gustavo Fring",
             "phone": "227-1-POLLOS",
-            "group": "Distributor"
+            "group": "Distributor",
+            "id": 3
         }
     ]
 }

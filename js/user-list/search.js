@@ -5,12 +5,12 @@ var React = require('react');
 var Search = React.createClass({
     render: function() {
         return (
-            <input type="text" ref="search" onChange={this.handleChange}/>
+            <input type="text" onChange={this.handleChange}/>
         );
     },
 
-    handleChange: function() {
-        var value = React.findDOMNode(this.refs.search).value;
+    handleChange: function(e) {
+        var value = e.target.value;
         this.props.onSearchChange(value);
     }
 });

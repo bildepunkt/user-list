@@ -11,12 +11,18 @@ var UserSearch = require('./user-search');
  * @author Chris Peters
  */
 var UserList = React.createClass({
+    /**
+     * @return {object}
+     */
     getInitialState: function() {
         return {
             search: ''
         };
     },
 
+    /**
+     * @return {ReactComponent}
+     */
     render: function() {
         var users = typeof this.props.users !== 'undefined' ?
             this.props.users.map(function(user) {
@@ -32,13 +38,16 @@ var UserList = React.createClass({
             <div className="user-list">
                 <h1>User List</h1>
                 <UserSearch onSearchChange={this.handleSearchChange} />
-                <ul>
+                <ul className="users">
                     {users}
                 </ul>
             </div>
         );
     },
 
+    /**
+     * @param {string} value - the search input's current value
+     */
     handleSearchChange: function(value) {
         this.setState({
             search: value

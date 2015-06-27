@@ -2,14 +2,21 @@
 
 var $ = require('jquery');
 var React = require('react');
-var qs = require('./lib/qs');
+var qs = require('../lib/qs');
 var UserList = require('./user-list');
 var UserDetails = require('./user-details');
 
+/**
+ * Welcome to the Ping Users app!
+ *
+ * @author Chris Peters
+ * @notes:
+ *      - possible polyfills: bind, map
+ */
 var App = React.createClass({
     getInitialState: function() {
         return {
-            page: document.location.hash.substr(1),
+            page: document.location.hash.substr(2),
             groups: [],
             users: []
         };
@@ -28,7 +35,7 @@ var App = React.createClass({
 
         $(window).bind('hashchange', function() {
             this.setState({
-                page: document.location.hash.substr(1)
+                page: document.location.hash.substr(2)
             });
         }.bind(this));
     },
@@ -36,7 +43,7 @@ var App = React.createClass({
     render: function() {
         var View;
 
-        if (this.state.page.indexOf('/details') === 0) {
+        if (this.state.page.indexOf('details') === 0) {
             View = <UserDetails id={qs('id')}/>
         } else {
             View = <UserList users={this.state.users} />;

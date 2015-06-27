@@ -4,15 +4,45 @@
  * @author Chris Peters
  */
 
+@import 'variables';
+
 body {
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    color: $accent-col;
 }
 
 ul {
     list-style: none;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all .4s;
+
+    &:hover,
+    &:active {
+        color: $accent-col;
+    }
+}
+
 .container {
     margin: 48px;
+}
+
+.close-button {
+    background-image: url('../img/close-button.png');
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+
+    .active,
+    &:hover,
+    &:active {
+        background-position: 0 20px;
+    }
 }

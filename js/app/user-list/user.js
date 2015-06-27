@@ -1,6 +1,7 @@
 'user strict';
 
 var React = require('react');
+var CloseButton = require('../common/close-button');
 
 /**
  * A User list row. Displays user's name, displays & handles delete button
@@ -14,10 +15,12 @@ var User = React.createClass({
      */
     render: function() {
         var link = '#/details?id=' + this.props.id;
+        var classNames = 'user' + (this.props.stripe ? ' stripe' : '');
+
         return (
-            <div class="user">
+            <div className={classNames}>
                 <a href={link}>{this.props.name}</a>
-                <span class="user-delete" onClick={this.handleClick}></span>
+                <CloseButton classNames={'user-delete'} onClick={this.handleClick} />
             </div>
         );
     },

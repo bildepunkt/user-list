@@ -1,4 +1,33 @@
-.user-list {
-    color: red;
+/**
+ * Styling for UserList and child components
+ *
+ * @author Chris Peters
+ */
+
+ .user-list {
+    
+    .users {
+          border: 1px solid gray;
+          height: 256px;
+          overflow: auto;
+          padding: 0;
+
+        .user {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+            padding: 12px;
+            transition: all .4s;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+
+        .user-delete {
+            display: block;
+            float: right;
+        }
+    }
 }
  

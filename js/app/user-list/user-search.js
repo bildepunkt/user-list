@@ -11,7 +11,10 @@ var React = require('react');
 var UserSearch = React.createClass({
     render: function() {
         return (
-            <input type="text" onChange={this.handleChange}/>
+            <div className="user-search">
+                <span className="icon"></span>
+                <input type="text" placeholder="search" onChange={this.handleChange}/>
+            </div>
         );
     },
 

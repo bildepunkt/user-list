@@ -1,0 +1,24 @@
+{
+    "groups": [
+        "Producer",
+        "Dealer",
+        "Distributor"
+    ],
+    "users": [
+        {
+            "name": "Walter H. White",
+            "phone": "227-243-6478",
+            "group": "Producer"
+        },
+        {
+            "name": "Jesse Pinkman",
+            "phone": "227-555-1337",
+            "group": "Dealer"
+        },
+        {
+            "name": "Gustavo Fring",
+            "phone": "227-1-POLLOS",
+            "group": "Distributor"
+        }
+    ]
+}

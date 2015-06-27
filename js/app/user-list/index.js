@@ -29,7 +29,7 @@ var UserList = React.createClass({
                 if (this.state.search === '' ||
                     user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) != -1) {
                     return (
-                        <User name={user.name} id={user.id} />
+                        <User name={user.name} id={user.id} onUserDeleteClick={this.handleUserDeleteClick} />
                     );
                 }
             }.bind(this)) : '';
@@ -41,8 +41,15 @@ var UserList = React.createClass({
                 <ul className="users">
                     {users}
                 </ul>
+                <div className="user-count">Displaying <strong>{this.props.users.length}</strong> users</div>
+                <br />
+                <a href="#/details" className="add-user primary-button">Add User</a>
             </div>
         );
+    },
+
+    handleUserDeleteClick: function(id) {
+        this.props.removeUser(id);
     },
 
     /**

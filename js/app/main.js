@@ -46,10 +46,28 @@ var App = React.createClass({
         if (this.state.page.indexOf('details') === 0) {
             View = <UserDetails id={qs('id')}/>
         } else {
-            View = <UserList users={this.state.users} />;
+            View = <UserList users={this.state.users} removeUser={this.removeUser} />;
         }
 
         return View;
+    },
+
+    removeUser: function(id) {
+        var users = this.state.users,
+            user;
+
+        for(var i = 0, len = users.length; i < len; i++) {
+            user = users[i];
+
+            if (id === user.id) {
+                users.splice(i, 1);
+                break;
+            }
+        }
+
+        this.setState({
+            users: users
+        });
     }
 });
 

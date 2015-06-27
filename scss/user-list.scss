@@ -4,7 +4,9 @@
  * @author Chris Peters
  */
 
- .user-list {
+@import 'variables';
+
+.user-list {
     
     .users {
           border: 1px solid gray;
@@ -25,9 +27,14 @@
         }
 
         .user-delete {
-            display: block;
             float: right;
         }
+    }
+
+    .user-count {
+        color: $accent-col;
+        float: right;
+        font-size: 12px;
     }
 }
  

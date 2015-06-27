@@ -24,11 +24,34 @@ a {
   a:active {
     color: #47c; }
 
+input[type="text"] {
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding: 6px 8px;
+  outline: none; }
+  input[type="text"]:focus {
+    border: 1px solid #749ad9;
+    box-shadow: 0 0 2px 2px rgba(68, 119, 204, 0.3); }
+
 .container {
   margin: 48px; }
 
+.primary-button {
+  background-color: #fff;
+  border: 1px solid #47c;
+  color: #47c;
+  display: block;
+  float: right;
+  margin-top: 12px;
+  padding: 6px 8px; }
+  .primary-button:hover {
+    background-color: #47c;
+    border: 1px solid #47c;
+    color: #fff; }
+
 .close-button {
   background-image: url("../img/close-button.png");
+  background-position: 0 1px;
   cursor: pointer;
   height: 20px;
   width: 20px; }
@@ -41,6 +64,9 @@ a {
  * Styling for UserList and child components
  *
  * @author Chris Peters
+ */
+/**
+ * Application-wide variables
  */
 .user-list .users {
   border: 1px solid gray;
@@ -56,8 +82,12 @@ a {
     .user-list .users .user:hover {
       background-color: #eee; }
   .user-list .users .user-delete {
-    display: block;
     float: right; }
+
+.user-list .user-count {
+  color: #47c;
+  float: right;
+  font-size: 12px; }
 
 /**
  * Application-wide variables

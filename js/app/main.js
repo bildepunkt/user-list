@@ -64,10 +64,10 @@ var App = React.createClass({
                 id = parseInt(qs('id'));
                 user = typeof id !== 'undefined' ? this.getUserById(id) : null;
 
-                View = <UserDetails user={user} groups={this.state.groups} />
+                View = <UserDetails user={user} saveUser={this.saveUser} groups={this.state.groups} />
             } else if (this.state.page.indexOf('group') === 0) {
                 document.title = 'Group | ' + DOCUMENT_TITLE;
-                
+
             } else {
                 document.title = DOCUMENT_TITLE;
                 View = <UserList users={this.state.users} removeUser={this.removeUser} />;
@@ -121,8 +121,20 @@ var App = React.createClass({
      *
      * @param {object} user
      */
-    addUser: function(user) {
-        var users = this.props.users.concat(user);
+    saveUser: function(user) {
+        var users = this.state.users;
+
+        // if user has an id we know it was an edit, if not: new!
+        if (user.id) {
+            for(var i = 0, len = users.length; i < len; i++) {
+                if (user.id == users[i].id) {
+                    users[i] = user;
+                }
+            }
+        } else {
+            user.id = users.length + 1;
+            users.push(user);
+        }
 
         this.setState({
             users: users

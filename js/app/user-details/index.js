@@ -22,16 +22,13 @@ var UserDetails = React.createClass({
      *
      */
     componentDidMount: function() {
-        this.props.user = this.props.user || {
-            name: '',
-            phone: '',
-            group: ''
-        };
-
-        this.props.groups = this.props.groups || [];
-
         this.setState({
-            dataReady: true
+            dataReady: true,
+            user: this.props.user || {
+                name: '',
+                phone: '',
+                group: ''
+            }
         });
     },
 
@@ -39,7 +36,7 @@ var UserDetails = React.createClass({
      *
      */
     render: function() {
-        var user = this.props.user,
+        var user = this.state.user,
             options = typeof this.props.groups !== 'undefined' ? this.getOptions() : '';
 
         if (!this.state.dataReady) {
@@ -49,12 +46,12 @@ var UserDetails = React.createClass({
         return (
             <div className="user-details">
                 <h1>User Details</h1>
-                <label>Name <input type="text" value={user.name ? user.name : ''} /></label>
+                <label>Name <input type="text" ref="name" value={user.name} onChange={this.handleInputChange}/></label>
                 <br />
-                <label>Phone <input type="text" value={user.phone ? user.phone : ''} /></label>
+                <label>Phone <input type="text" ref="phone" value={user.phone} onChange={this.handleInputChange}/></label>
                 <br />
                 <label>Group
-                    <select value={this.props.user.group}>
+                    <select value={user.group} ref="group" onChange={this.handleInputChange}>
                         {options}
                     </select>
                 </label>
@@ -62,7 +59,7 @@ var UserDetails = React.createClass({
                 <br />
                 <div className="action-buttons">
                     <a className="primary-button" href="#/">Cancel</a>
-                    <a className="primary-button" href="#/">Save</a>
+                    <a className="primary-button" href="#/" onClick={this.handleUserAddClick}>Save</a>
                 </div>
             </div>
         );
@@ -84,13 +81,29 @@ var UserDetails = React.createClass({
         return options;
     },
 
+    handleInputChange: function() {
+        this.setState({
+            user: {
+                name: React.findDOMNode(this.refs.name).value,
+                phone: React.findDOMNode(this.refs.phone).value,
+                group: React.findDOMNode(this.refs.group).value,
+                id: this.state.user.id
+            }
+        });
+    },
+
     /**
      * send added user to parent (who owns user list)
-     *
-     * @param {object} user
      */
-    handleUserAddClick: function(user) {
-        this.props.addUser(user);
+    handleUserAddClick: function() {
+        var dirtyUser = {
+            name: React.findDOMNode(this.refs.name).value,
+            phone: React.findDOMNode(this.refs.phone).value,
+            group: React.findDOMNode(this.refs.group).value,
+            id: this.state.user.id
+        };
+
+        this.props.saveUser(dirtyUser);
     }
 });
 

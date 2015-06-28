@@ -5,7 +5,7 @@ var React = require('react');
 /**
  * A User list row. Displays user's name, displays & handles delete button
  *
- * @component UserDetails
+ * @component User
  * @author Chris Peters
  */
 var User = React.createClass({
@@ -13,7 +13,7 @@ var User = React.createClass({
      *
      */
     render: function() {
-        var link = '#/details?id=' + this.props.id;
+        var link = '#/user?id=' + this.props.id;
         var classNames = 'user' + (this.props.stripe ? ' stripe' : '');
 
         return (

@@ -9,6 +9,9 @@ var React = require('react');
  * @author Chris Peters
  */
 var UserSearch = React.createClass({
+    /**
+     *
+     */
     render: function() {
         return (
             <div className="user-search">
@@ -18,6 +21,9 @@ var UserSearch = React.createClass({
         );
     },
 
+    /**
+     * @param {object} e
+     */
     handleChange: function(e) {
         var value = e.target.value;
         this.props.onSearchChange(value);

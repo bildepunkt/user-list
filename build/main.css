@@ -36,14 +36,22 @@ input[type="text"] {
 .container {
   margin: 48px; }
 
+.loading {
+  background-image: url("../img/loading.gif");
+  height: 42px;
+  width: 42px; }
+
+.clear {
+  clear: both; }
+
 .primary-button {
   background-color: #fff;
   border: 1px solid #47c;
   color: #47c;
-  display: block;
-  float: right;
+  cursor: pointer;
   margin-top: 12px;
-  padding: 6px 8px; }
+  padding: 6px 8px;
+  transition: all 0.4s; }
   .primary-button:hover {
     background-color: #47c;
     border: 1px solid #47c;
@@ -59,6 +67,22 @@ input[type="text"] {
   .close-button:hover,
   .close-button:active {
     background-position: 0 20px; }
+
+/**
+ *
+ */
+.user-details input, .user-details select {
+  margin: 16px; }
+
+.user-details .add-group {
+  margin-left: 12px; }
+
+.user-details .action-buttons {
+  float: right;
+  margin-top: 32px; }
+  .user-details .action-buttons a {
+    display: inline-block;
+    margin-left: 16px; }
 
 /**
  * Styling for UserList and child components
@@ -88,6 +112,10 @@ input[type="text"] {
   color: #47c;
   float: right;
   font-size: 12px; }
+
+.user-list .add-user {
+  display: block;
+  float: right; }
 
 /**
  * Application-wide variables

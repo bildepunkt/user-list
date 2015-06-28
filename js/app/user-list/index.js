@@ -12,7 +12,7 @@ var UserSearch = require('./user-search');
  */
 var UserList = React.createClass({
     /**
-     * @return {object}
+     *
      */
     getInitialState: function() {
         return {
@@ -21,7 +21,7 @@ var UserList = React.createClass({
     },
 
     /**
-     * @return {ReactComponent}
+     *
      */
     render: function() {
         var users = typeof this.props.users !== 'undefined' ?
@@ -43,11 +43,16 @@ var UserList = React.createClass({
                 </ul>
                 <div className="user-count">Displaying <strong>{this.props.users.length}</strong> users</div>
                 <br />
-                <a href="#/details" className="add-user primary-button">Add User</a>
+                <a href="#/user" className="add-user primary-button">Add User</a>
             </div>
         );
     },
 
+    /**
+     * send id to parent method who owns user list
+     *
+     * @param {number} id
+     */
     handleUserDeleteClick: function(id) {
         this.props.removeUser(id);
     },

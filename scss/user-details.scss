@@ -1,0 +1,24 @@
+/**
+ *
+ */
+
+.user-details {
+
+    input, select {
+        margin: 16px;
+    }
+
+    .add-group {
+        margin-left: 12px;
+    }
+
+    .action-buttons {
+        float: right;
+        margin-top: 32px;
+
+        a {
+            display: inline-block;
+            margin-left: 16px;
+        }
+    }
+}

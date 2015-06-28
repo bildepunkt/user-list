@@ -46,14 +46,24 @@ input[type="text"] {
     margin: 48px;
 }
 
+.loading {
+    background-image: url('../img/loading.gif');
+    height: 42px;
+    width: 42px;
+}
+
+.clear {
+    clear: both;
+}
+
 .primary-button {
     background-color: #fff;
     border: 1px solid $accent-col;
     color: $accent-col;
-    display: block;
-    float: right;
+    cursor: pointer;
     margin-top: 12px;
     padding: 6px 8px;
+    transition: all .4s;
 
     &:hover {
         background-color: $accent-col;

@@ -5,6 +5,7 @@ var React = require('react');
 var qs = require('../lib/qs');
 var UserList = require('./user-list');
 var UserDetails = require('./user-details');
+var GroupDetails = require('./group-details');
 var DOCUMENT_TITLE = 'Ping Users';
 
 /**
@@ -67,7 +68,7 @@ var App = React.createClass({
                 View = <UserDetails user={user} saveUser={this.saveUser} groups={this.state.groups} />
             } else if (this.state.page.indexOf('group') === 0) {
                 document.title = 'Group | ' + DOCUMENT_TITLE;
-
+                View = <GroupDetails />
             } else {
                 document.title = DOCUMENT_TITLE;
                 View = <UserList users={this.state.users} removeUser={this.removeUser} />;

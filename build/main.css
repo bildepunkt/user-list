@@ -1,4 +1,14 @@
 /**
+ *
+ */
+.group-details .action-buttons {
+  float: right;
+  margin-top: 32px; }
+  .group-details .action-buttons a {
+    display: inline-block;
+    margin-left: 16px; }
+
+/**
  * Styling for common elements
  *
  * @author Chris Peters

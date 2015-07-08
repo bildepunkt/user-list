@@ -74,6 +74,7 @@ var App = React.createClass({
             }
         }
 
+        // View will be falsey only if state.dataReady is false
         return View || <div className="loading"></div>;
     },
 

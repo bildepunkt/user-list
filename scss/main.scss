@@ -63,6 +63,7 @@ input[type="text"] {
     cursor: pointer;
     margin-top: 12px;
     padding: 6px 8px;
+    white-space: nowrap;
     transition: all .4s;
 
     &:hover {

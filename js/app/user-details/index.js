@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ActionButtons = require('../common/action-buttons');
 
 /**
  * The User details base component
@@ -57,10 +58,7 @@ var UserDetails = React.createClass({
                 </label>
                 <a href="#/group" className="primary-button add-group">Add Group</a>
                 <br />
-                <div className="action-buttons">
-                    <a className="primary-button" href="#/">Cancel</a>
-                    <a className="primary-button" href="#/" onClick={this.handleUserAddClick}>Save</a>
-                </div>
+                <ActionButtons onSave={this.handleAddUser} />
             </div>
         );
     },
@@ -68,7 +66,7 @@ var UserDetails = React.createClass({
     /**
      * returns components in correspondance with user groups
      *
-     * return {ReactComponent}
+     * @return {ReactComponent}
      */
     getOptions: function() {
         var groups = this.props.groups;
@@ -95,7 +93,7 @@ var UserDetails = React.createClass({
     /**
      * send added user to parent (who owns user list)
      */
-    handleUserAddClick: function() {
+    handleAddUser: function() {
         var dirtyUser = {
             name: React.findDOMNode(this.refs.name).value,
             phone: React.findDOMNode(this.refs.phone).value,

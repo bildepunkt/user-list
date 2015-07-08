@@ -16,7 +16,6 @@ var DOCUMENT_TITLE = 'Ping Users';
  *      - possible polyfills: bind, map
  */
 var App = React.createClass({
-
     /**
      *
      */
@@ -68,7 +67,7 @@ var App = React.createClass({
                 View = <UserDetails user={user} saveUser={this.saveUser} groups={this.state.groups} />
             } else if (this.state.page.indexOf('group') === 0) {
                 document.title = 'Group | ' + DOCUMENT_TITLE;
-                View = <GroupDetails />
+                View = <GroupDetails addGroup={this.addGroup}/>
             } else {
                 document.title = DOCUMENT_TITLE;
                 View = <UserList users={this.state.users} removeUser={this.removeUser} />;
@@ -76,6 +75,20 @@ var App = React.createClass({
         }
 
         return View || <div className="loading"></div>;
+    },
+
+    /**
+     * adds a new group to state.groups
+     *
+     * @param {string} 
+     */
+    addGroup: function(group) {
+        var groups = this.state.groups;
+        groups.push(group);
+
+        this.setState({
+            groups: groups
+        });
     },
 
     /**
